@@ -44,6 +44,22 @@ app.post("/api/submit", async (req, res) => {
   });
 });
 
+// Route GET pour récupérer tous les enregistrements
+app.get('/api/records', async (req, res) => {
+    const { data, error } = await supabase
+        .from('mini_test')
+        .select('*')
+        .order('created_at', { ascending: false }); // Du plus récent au plus ancien
+
+    if (error) {
+        console.error("Erreur Supabase :", error);
+        return res.status(500).json({ success: false, message: error.message });
+    }
+
+    res.json({ success: true, data });
+});
+
+
 // Démarrage du serveur local
 app.listen(PORT, () => {
   console.log(`🚀 Serveur backend lancé en local sur http://localhost:${PORT}`);
