@@ -1,0 +1,17 @@
+# Dépendances Node.js
+node_modules/
+
+# Fichiers d'environnement (TRÈS IMPORTANT pour protéger tes clés Supabase)
+.env
+
+# Logs et rapports d'erreurs npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers système (Mac / Windows)
+.DS_Store
+Thumbs.db
+
+# Configuration de l'éditeur
+.vscode/
